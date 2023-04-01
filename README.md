@@ -4,6 +4,10 @@ A trace map generator for an alternative to convolutional neural networks.
 
 FPC Lazarus
 
+The first input line is an angle of 0-45 degrees.
+The second is the width, the third is the height.
+
+
 The column and line headings are now filled in.
 Works now at any size.
 For a given range of angles, it is read from the lower left cell, columns and rows are numbered, each contains the coordinates of the following, 1 after the coordinates means the end of the line, 0 - the line continues.
