@@ -17,3 +17,7 @@ I comment on the lines of filling in the table and the calculation by this engin
 For a cell of this field (this is a life hack, of course, but how could it be without it, but ... everything is honest - no fraud) the time is 1e-9 seconds.
 FPC programming language Lazarus.
 Linux runtime.
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+At the moment, the formula for calculating the last generated row, with a table length greater than the height, is being finalized.
