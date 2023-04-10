@@ -20,4 +20,7 @@ Linux runtime.
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-At the moment, the formula for calculating the last generated row, with a table length greater than the height, is being finalized.
+
+
+tested with sizes 15*10 and x*x and x*(x-y) at (x>y) at all angles.
+The next approach is test automation.
