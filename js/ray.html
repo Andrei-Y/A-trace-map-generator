@@ -25,7 +25,7 @@ let steps1=2;
 let  stepRare=1;
 let  stepsBig=1;
 //*********************
-let TracerY=1;
+let TracerY=0;
 let y=1;
 let xRazmerX=1;
 let yRazmerY=1;
@@ -36,9 +36,11 @@ let CaTanDegP=0;
 
 
 
-
+let n=0;
 
 f();
+
+//alert(n);
 
 function fn3(){
     do {//      repeat//vvvvvvvvvvv3333
@@ -46,10 +48,13 @@ function fn3(){
             //если раскомментироваnm строки После jmp p  то начнётся вывод данных в таблицу
 		//let a=(xf-1)*RazmerY+yf-1;	//
 		let a=(xf)*RazmerY+yf;	//
+		//console.log(p+' '+TracerY+',' + '1');
+		//alert(p+' '+TracerY);
 		switch (p){
             case 1:
-              console.log(',' + '1');//StringGrid1.Cells[xf, yf] :=
+              //StringGrid1.Cells[xf, yf] :=
               ///*
+			  n++;
 			  document.getElementById('c'+a).innerText=TracerX + ',' + TracerY + ',' + 1;
 			  //alert('c'+(xf*RazmerY+yf));
 			  //IntToStr(TracerX) + ',' + IntToStr(TracerY) + ',' + '1';
@@ -58,14 +63,14 @@ function fn3(){
             //goto p4;
 			
             case 2: if (p!=3){
-             console.log(',' + '0');// StringGrid1.Cells[xf, yf] := IntToStr(xf) + ',' + IntToStr(yf) + ',' + '0';
+             //console.log(',' + '0');// StringGrid1.Cells[xf, yf] := IntToStr(xf) + ',' + IntToStr(yf) + ',' + '0';
 			 document.getElementById('c'+a).innerText= xf + ',' + yf + ',0';			 
             //автоматическое забивание координат в местах скоса трассы
             p=3;//p := @p3;//
             //goto p4;
 			}
             case 3: if (p!=3){
-             console.log(',' + '0');//StringGrid1.Cells[xf, yf] := IntToStr(xf) + ',' + IntToStr(y) + ',' + '0';
+             //console.log(',' + '0');//StringGrid1.Cells[xf, yf] := IntToStr(xf) + ',' + IntToStr(y) + ',' + '0';
 			 document.getElementById('c'+a).innerText= xf + ',' + y + ',0';			 
             //автоматическое забивание координат трассы на прямых участках
 			}
@@ -98,70 +103,60 @@ fn3();//function fn3();
 
 		switch (Edge){
 		
-		
-        case 1://  Edge1:
-            //подсчёт шагов в первой строке - других расчётов для первой строки не требуется и знание этого значения нужно для последней строки
-            steps1++;//Inc(steps1);
-         // goto Edge3;
-		 
-		 
-		 
-		 
-        case 2://  Edge2:
-            //трассировку начальной ячейки каждого шага последней обрабатываемой строки кроме правого столбца
-		if(Edge!=1)	
-         { if (RazmerX > RazmerY) //then 
-		     {//begin
-                steps2++;//  inc (steps2);
-                steps1--;//  Dec(steps1);
-                  if (y < (stepsBig+1)) // then 
-				  {//begin
-   ///* 
-   TracerX = x - (stepFrequent * y  + znak * Math.trunc(y / (stepsBig+1))+znak *Math.trunc((y+steps2) / (stepsBig+1)))+1;
-    if ((y+steps2) == (stepsBig+1)) //then 
-	{//begin
-    ///*
-	TracerX = x - (stepFrequent * y  + znak * Math.trunc(y / (stepsBig+1)))+1;
-    }//end;
+		case 1:
+			steps1++;
+			//goto Edge3;
+			
+		case 2:
+			if(Edge!=1){
+
+				if (RazmerX > RazmerY) 
+					{//begin
+						steps2++;//inc (steps2);
+						steps1--;//Dec(steps1);
+						if (y < (stepsBig+1))   
+							{//begin
+								TracerX= x - (stepFrequent * y  + znak * Math.trunc(y / (stepsBig+1))+znak *trunc((y+steps2) / (stepsBig+1)))+1;
+								if ((y+steps2) == (stepsBig+1)) 
+									{//begin
+									   TracerX=x-(stepFrequent * y  + znak * Math.trunc(y / (stepsBig+1)))+1;
+									}//end;
 
 
-    if (steps ==0) steps2 =0;
-        }//end 
-		else 
-		{//begin
-    ///*
-	TracerX = x - (stepFrequent * y  + znak * Math.trunc(y / (stepsBig+1)))+1;
-         }// end;
-    if (TracerX<1)// then 
-		{//begin
-		   TracerY = y - steps1;
-		   TracerX = 0;
-		   if(TracerY < 0) TracerY= 0;
-		}//end;
-        }// end 
-		 else 
-		 {//begin
-           steps1--;//Dec(steps1);
-            TracerY = y - steps1;
-            TracerX = 0;
-          }//end;
+								if (steps ==0)steps2 = 0;
+							}//end 
+							else 
+							{///begin
+							TracerX = x - (stepFrequent * y  + znak * Math.trunc(y / (stepsBig+1)))+1;
+							}//end;
+				  
 
-          p=1;//p := @p1;
-          //goto Edge4;
-		  }
+
+						if (TracerX<1) 
+							{//begin
+							   TracerY = y - steps1;
+							   TracerX = 0;
+							   if (TracerY < 0) TracerY = 0;
+							}//end;
+					}//end 
+					else 
+					{//begin
+					   steps1--;
+					   TracerY = y - steps1;
+					   TracerX = 0;
+					}//if RazmerX > RazmerY
+				
+				p=1;
+				//o Edge4;
+			}
 		  
-		  
-		  
-		  
-        case 3:
-          if(Edge!=2) p=2;// p := @p2;
-		  
-		  
-		  
-        case 4:
-            steps--;//Dec(steps);
-			}//switch
-        }while(x>=0);//until x < 0;
+		case 3:
+			if(Edge!=2) p=2;
+		case 4:
+			steps--;
+		}//switch	
+	}while(x>=0);//    until x < 0;		
+
 		//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 }//fn2	
 
@@ -220,6 +215,7 @@ function fn0(){
 	//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 function f()
   {//begin //begin steps1
+	CaTanDegP=300000;
     deg = 43;//StrToInt(Edit1.Text);
     RazmerX = 15;//StrToInt(Edit2.Text);
     RazmerY = 10;//StrToInt(Edit3.Text);
@@ -234,7 +230,7 @@ function f()
     if (TanDeg == 0) //then
 			{//begin
 			  CaTanDeg = RazmerX;
-			  CaTanDegP = CaTanDeg|0;//Trunc(CaTanDeg);
+			  CaTanDegP = Math.trunc(CaTanDeg);//CaTanDeg|0;//Trunc(CaTanDeg);
 			  //px = @x;
 			  //py = @y;
 			  StringFinish = 0;
@@ -315,7 +311,8 @@ tb.innerHTML=a;
 
 function Vstavka(){
       stepFrequent = Math.round(CaTanDeg);
-      StringDiv = CaTanDeg-CaTanDeg|0;//Math.fraction(CaTanDeg);
+      //StringDiv = CaTanDeg-CaTanDeg|0;//Math.fraction(CaTanDeg);
+	  StringDiv = CaTanDeg-(CaTanDeg|0);
 
       StringDiv1 = 1 - StringDiv;
       znak = Math.sign(0.5 - StringDiv) * Math.sign(StringDiv);
