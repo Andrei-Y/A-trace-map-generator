@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="/usr/bin/fpc" Date="1625802185"/>
-  <Params Value=" -Px86_64 -MObjFPC -Scghi -Cg -O1 -gw3 -gl -l -vewnhibq -Fi/home/andrei/Documents/DebianCopy/MyLazarus/generator_0-45_deg/lib/x86_64-linux -Fu/usr/share/lazarus/2.2.6/lcl/units/x86_64-linux/gtk2 -Fu/usr/share/lazarus/2.2.6/lcl/units/x86_64-linux -Fu/usr/share/lazarus/2.2.6/components/freetype/lib/x86_64-linux -Fu/usr/share/lazarus/2.2.6/components/lazutils/lib/x86_64-linux -Fu/usr/share/lazarus/2.2.6/packager/units/x86_64-linux -Fu/home/andrei/Documents/DebianCopy/MyLazarus/generator_0-45_deg/ -FU/home/andrei/Documents/DebianCopy/MyLazarus/generator_0-45_deg/lib/x86_64-linux/ -FE/home/andrei/Documents/DebianCopy/MyLazarus/generator_0-45_deg/ -o/home/andrei/Documents/DebianCopy/MyLazarus/generator_0-45_deg/project1 -dLCL -dLCLgtk2 project1.lpr"/>
-</CONFIG>
