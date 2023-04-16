@@ -23,3 +23,5 @@ Linux runtime.
 
 
 It seems that the formula has been completed. Next is an automated test.
+
+Works for maps no smaller than 3 pixels in y-axis.
