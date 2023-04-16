@@ -22,5 +22,4 @@ Linux runtime.
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-tested with sizes 15*10 and x*x and x*(x-y) at (x>y) at all angles.
-The next approach is test automation.
+It seems that the formula has been completed. Next is an automated test.
