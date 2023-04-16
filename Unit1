@@ -275,30 +275,20 @@ procedure TForm1.Button1Click(Sender: TObject);
           if RazmerX > RazmerY then begin
                   inc (steps2);
                   Dec(steps1);
-                  if y < stepsBig+1  then begin
-    TracerX := x - (stepFrequent * y  + znak * trunc(y / (stepsBig+1))+znak *trunc((y+steps2) / (stepsBig+1)))+1;
-    if y+steps2 = stepsBig+1 then begin
-       TracerX := x - (stepFrequent * y  + znak * trunc(y / (stepsBig+1)))+1;
-  end;
-
-
-    if steps =0 then steps2 := 0;
-                  end else begin
-    TracerX := x - (stepFrequent * y  + znak * trunc(y / (stepsBig+1)))+1;
-                 end;
- //  if y > stepsBig+1+steps2 then TracerX := x - (stepFrequent * y  + znak * trunc(y / (stepsBig+1))+znak *sign(trunc((y+steps2) / (stepsBig+1))))+1;
-
-    if TracerX<1 then begin
-       TracerY := y - steps1;
-       TracerX := 0;
-       if TracerY < 0 then TracerY := 0;
-    end;
+          TracerX := x - ( znak*sign(trunc((1+sign(y-trunc(y/(stepsBig+1))*(stepsBig+1)-steps)/2))) +  stepFrequent * y + znak * trunc(y / (stepsBig+1)))+1;
+          //  if y+steps2 = stepsBig+1 then begin
+          //     TracerX := x - (stepFrequent * y  + znak * trunc(y / (stepsBig+1)))+1;
+          //end;
+                                       if TracerX<1 then begin
+                                       TracerY := y - steps1;
+                                       TracerX := 0;
+                                       if TracerY < 0 then TracerY := 0;
+                                       end;
          end else begin
            Dec(steps1);
             TracerY := y - steps1;
             TracerX := 0;
           end;
-
           p := @p1;
           goto Edge4;
           Edge3:
@@ -363,4 +353,4 @@ begin
 end;
 
 
-end.                                                       
+end.
