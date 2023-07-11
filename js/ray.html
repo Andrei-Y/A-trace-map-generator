@@ -1,0 +1,310 @@
+<html>
+<head>
+
+<link rel="icon" type="image/x-icon" href="data:image/gif;base64,R0lGODlhEAAQAPcAALIZKaYrOZ9Xaoc/PYw0KpAyKYkfHLMoJ8swLsEvK5EhH4wmKNY7Q9Q8R81BTs9EUcIcMq49RYU8M3cnGaA9Ma8sJ9kpJ9wVHc0bHNcrKdUxLYojG503O8o9SdVBTeBDUbksPKM2NnAiFo00J54vKFoIClAAAG8CB28EBogECcEVHdUhH7kpJ5w3Ns1DS+E/TLMoN4AmH30pHJ03KVkICjYAAmwSDakrLKYuLZUgIJEWGIAMDXwGCIcWF5YoLtw3RZ4mKnEfFY0qHnwZFFEKCyECBHAXFbgjJcopKbUvKqEzLoQlIIkpIpMnJY4WHZshKZQZGIIcFpocFm0FCFUQD0QSFZQKFswbIs4bI5QfGKsfJYUAD4QIF44eHqwYH3UNEpwWGKUXG5MRF6AdIUYHCCUEA08ABKUiJIw1MEYcE60dIHsACKcBFpoRFNQRI3wGDp8VGboLHqgcJskhJHsLD3MhG3MmIbcqK+MOJHsCD84LGIoAD6gFG6sJGNEMJnsDDXoFCd4AHLYTJMEZHLoWHqggI84XIvwCI/8IMMEPId8ICuEYK7wMI8EQIb4GIGsCCoIHEPgAF84BH8UJGckNIKwQG6kCFZ4BDsMDEtIDGN0DFNYHG8kII74GH64AGFMBCHYOF+wAEOcAGtMAFd0CGZIGDm4DDG8NFaYDD+QFHeQDHM4DG8MCHa8AE5MLF4UZIXQdIqkACv8AIPABIe0AILQCFE4EBRUKCnEED+YDHuIAIc8DI7IIHqkiLrg2P7IyPZgtNJYBCrIAEv8RQf8GN/8DJZwDEWsFEXgADugDJOIVNsUTJtsyQ9U0Q9w1SNQ0RZ1KUewjNKsUGZIFCaQAAK4AAIwAAJUABYUAAIcABIkAB7IAFOw2TuIxR+4qQ/AwR4tSWalSW+9JWPlHV+ZFU9VTYMxhbcZfarNIUbEbLb0LIccXKvVJYfJRc/9EZPM8WIJUWoFWXZJTXeFHVu5QZOFketZZbNFMYLE3RLY0Q9NEV9kzR+JEXudYd8JEX4ckNiH/C05FVFNDQVBFMi4wAwEAAAAh+QQEewABACwAAAAAEAAQAAAI/wABQAABAwgUMHAAQQIFCxg0cPACRAgRI0iUMHECRQoVK1i0cPEESBAhQ4gUMXIESRIlS5g0cfIGTBgxY8iUMXMGTRo1a9i0cfMIUCBBgwgVMnQIUSJFixg1cvQKVChRo0iVMnUKVSpVq1i1cvUMWDBhw4gVM3YMWTJly5g1c/YOXDhx48iVM3cOXTp169i1c/cQYECBAwkWNHgQYUKFCxk2dPgSZEiRI0mWNHkSZUqVK1m2dPkUaFChQ4kWNXoUaVKlS5k2dfoWbFixY8mWNXsWbVq1a9m2dfsYcGDBgwkXNnwYcWLFixk3dvwadGjRo0mXNn0adWrVq1m3dv0ceCRw4cOJFzd+HHly5cuZN3f+Hnx48ePJlzd/Hn169evZt3f/BAQAOw==">
+<title>A-trace-map-generator</title>
+<style>
+table {margin: 0 auto;}
+table,td{padding:2px;border:2px solid blue;border-collapse: collapse;border-spacing: 0;}
+</style>
+</head>
+<body>
+
+<table id="tb"></table>
+
+<script>
+let p=1;
+let x=10;
+let Biger=2;
+//*********************
+let steps=1;
+let stepFrequent=1;
+let Edge=1;
+let steps1=0;
+let  stepRare=1;
+let  stepsBig=1;
+//*********************
+let TracerY=0;
+let y=1;
+let xRazmerX=1;
+let yRazmerY=1;
+//************
+let CaTanDegP=0;
+//************
+
+let h=false;//true;//
+let n=0;
+
+f();
+
+function fn3(){// p
+    do {
+        xf=x+1;;
+            //если раскомментироваnm строки После jmp p  то начнётся вывод данных в таблицу
+		let a=(xf)*RazmerY+yf;	
+		//if(a==100)
+		h=true;	
+		
+		switch (p){
+            case 1:
+			  n++;
+			  if(h)document.getElementById('c'+a).innerText=TracerX + ',' + TracerY + ',' + 1;
+            //запись правого столбца
+            p=3;			
+            case 2: 
+			if (p!=3){
+			 if(h)document.getElementById('c'+a).innerText= xf + ',' + yf + ',0';
+            //автоматическое забивание координат в местах скоса трассы
+            p=3;
+			}
+            case 3: 
+			if(p!=3)// no entry
+			{
+			 if(h)document.getElementById('c'+a).innerText= xf + ',' + y + ',0';			 
+            //автоматическое забивание координат трассы на прямых участках
+			}
+            case 4:
+        x--; 
+		}		
+    } while (x>=Biger);
+}	
+
+function fn2(){ //Edge
+ do{
+          if (!steps)
+          {
+            Biger= x - stepRare+1;
+            steps= stepsBig+1;
+          }
+          else
+          {
+            Biger= x - stepFrequent + 1;
+          }
+          if (Biger < 0) Biger= 0;		  
+		  
+		fn3();// p
+		  
+		switch (Edge){		
+		case 1:
+			steps1++;			
+		case 2:
+			if(Edge!=1){
+				if (RazmerX > RazmerY) 
+					{
+						steps2++;
+						steps1--;
+						if (y < (stepsBig+1))   
+							{
+								TracerX= x - (stepFrequent * y  + znak * Math.trunc(y / (stepsBig+1))+znak *Math.trunc((y+steps2) / (stepsBig+1)))+1;
+								if ((y+steps2) == (stepsBig+1)) 
+									{
+									   TracerX=x-(stepFrequent * y  + znak * Math.trunc(y / (stepsBig+1)))+1;
+									}
+								if (steps ==0)steps2 = 0;
+							}
+							else 
+							{
+							TracerX = x - (stepFrequent * y  + znak * Math.trunc(y / (stepsBig+1)))+1;
+							}
+						if (TracerX<1) 
+							{
+							   TracerY = y - steps1;
+							   TracerX = 0;
+							   if (TracerY < 0) TracerY = 0;
+							}
+					}
+					else 
+					{
+					   steps1--;
+					   TracerY = y - steps1;
+					   TracerX = 0;
+					}
+				p=1;
+			}		  
+		case 3:
+			if(Edge!=2) p=2;
+		case 4:
+			steps--;
+		}//switch	
+		
+	}while(x>=0);	
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+}//fn2	
+
+function fn1(){ //logic
+    do{// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv1111		
+		switch (logic){
+			case 1: //пропускаем первую строку
+				logic=2;
+				steps = stepsBig;
+				break;
+			
+			case 2: 
+			{
+				Edge=3;
+				logic=3;		
+			}
+			
+			
+			case 3:
+			if(logic!=2){
+			///*  
+			TracerY = y - steps1;//расчёт ячейки правого столбца||
+			TracerX = 0;
+			if (TracerY < 0)
+			{ 
+			TracerX = RazmerX - (stepFrequent * y + znak *Math.trunc(y / (stepsBig+1)));
+			  if (TracerX < 0) TracerX = 0;
+			  TracerY = 0;
+			}
+			}
+						
+			case 4:
+			  steps = stepsBig;
+			}//switch  
+		  
+fn2();// Edge
+
+        y++;
+        yf = y + 1;
+        p=1;
+        x = xRazmerX;
+     }while(y <= (yRazmerY - 1));;
+ 
+}// 	 
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+function fn0(){	
+    do{
+		fn1();	  
+		Edge=2;
+    }while(y <= yRazmerY);
+}	
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+function f()
+  {
+	CaTanDegP=300000;
+    deg = 43;
+    RazmerX = 15;
+    RazmerY = 10;//StrToInt(Edit3.Text);
+    ////////////////////////////////////////////////////////////////////////////////
+    ocantovca();
+    ////////////////////////////////////////////////////////////////////////////////
+    TanDeg = Math.tan((deg*Math.PI/180));  
+    if (TanDeg == 0)
+			{
+			  CaTanDeg = RazmerX;
+			  CaTanDegP = Math.trunc(CaTanDeg);;
+			  //px = @x;
+			  //py = @y;
+			  StringFinish = 0;
+			  Ostatok = 0;
+			  Vstavka();
+			}
+    else
+    {
+      CaTanDeg = 1 / TanDeg;
+      if (CaTanDeg >= TanDeg)
+      {
+        //px = @x;
+        //py = @y;
+        Vstavka();
+        if (CaTanDegP > 28)  CaTanDegP = 27;
+      }
+      else
+      {
+        //px = @y;
+        //py = @x;
+        Vstavka();
+        if (CaTanDegP > 28)  CaTanDegP = 27;
+      }
+    }
+    if (CaTanDegP == 0)
+    {
+      StringFinish = 0;
+      Ostatok = 0;
+    }
+    else
+    {
+      StringDivTrunc = RazmerX % CaTanDegP;
+      Ostatok = 28 - StringDivTrunc * CaTanDegP;
+    }
+    x= RazmerX - 1;
+    xRazmerX = x;
+    StringStart = x;
+    yRazmerY= RazmerY - 1;
+    y = 0;
+    TracerY = 0;
+    TracerX = 0;
+    steps = 0;
+    logic=1;
+    p=1;
+    Edge=1;
+    steps1 = 0;
+    xf = 0;
+    yf = y + 1;
+    stepFrequentD = stepFrequent;
+    stepsBigD = 1 / (stepsBig + 1);
+    steps2=1;
+    //runTime := gettickcount;//64;
+	
+fn0();//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	
+    //runTime = gettickcount - runTime; //  64
+    ///*Label5.Caption := IntToStr(runTime);
+  }
+
+
+
+function ocantovca(){
+	let a='';
+	for (let i=0;i<=RazmerY;i++){
+		a+='<tr>';
+		for (let j=0;j<=RazmerX;j++){a+=
+			'<td id="'
+			+((i*j)?'c':'x')
+			+(j*RazmerY+i)
+			+'"'
+			+((i*j)?'':' bgcolor=#def')
+			+'>'
+			+((i*j)?'':(i+j)?i+j-1:'')
+			+'</td>';
+			}
+			a+='</tr>';
+		}
+	tb.innerHTML=a;
+	}
+
+function Vstavka(){
+      stepFrequent = Math.round(CaTanDeg);
+	  StringDiv = CaTanDeg-(CaTanDeg|0);
+
+      StringDiv1 = 1 - StringDiv;
+      znak = Math.sign(0.5 - StringDiv) * Math.sign(StringDiv);
+      if (StringDiv > 0.5)// then
+        {stepsBig = Math.round(1 / StringDiv1)}
+      else
+        {stepsBig = Math.round(1 / StringDiv)};
+      if (StringDiv == 0)   stepsBig = 1;
+      Ostatok1 = 1;
+      if (CaTanDeg == 1) //then
+        {
+          znak = 0;
+          Ostatok1 = 0;
+        }
+      stepRare = stepFrequent + znak;
+      bigStep = stepsBig * stepFrequent;
+      if (bigStep == 0) 
+      {
+        bigStep = stepRare;
+        stepRare = 0;
+      }
+   ///* Label1.Caption := IntToStr(stepRare);
+   ///* Label2.Caption := IntToStr(stepFrequent);
+   ///* Label6.Caption := IntToStr(stepsBig);
+    incTracerY=0;
+}
+
+
+</script>
+</body>
+</html>
